@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lost Treasure</string>
+
+    <string name="goldNS">Gold N/S</string>
+    <string name="goldEW">Gold E/W</string>
+    <string name="silverNS">Silver N/S</string>
+    <string name="silverEW">Silver E/W</string>
+
+</resources>
