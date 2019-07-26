@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         goldlocationtext.setText("Gold: " + String.valueOf(goldlocation[0])+String.valueOf(goldlocation[1]));
         silverlocationtext.setText("Silver: "+String.valueOf(silverlocation[0])+String.valueOf(silverlocation[1]));
 
-        Button goldNSCheck = (Button)findViewById(R.id.goldNS);
+        Button goldNSCheck = findViewById(R.id.goldNS);
         goldNSCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,15 +43,65 @@ public class MainActivity extends AppCompatActivity {
                 test[0] = Integer.parseInt(input.getText().toString())/10;
                 test[1] = Integer.parseInt(input.getText().toString())%10;
                 int ns = checkLocation(test,0,0);
-                TextView compass = findViewById(R.id.compass);
-                if (ns > 0)
-                    compass.setText(ns + "North");
-                else if (ns < 0)
-                    compass.setText(ns + "south");
-                else
-                    compass.setText("Here");
+                compassAnimation(0,ns);
             }
         });
+        Button goldEWCheck = findViewById(R.id.goldEW);
+        goldEWCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int[] test = new int[2];
+                EditText input = findViewById(R.id.numpadinput);
+                test[0] = Integer.parseInt(input.getText().toString())/10;
+                test[1] = Integer.parseInt(input.getText().toString())%10;
+                int ew = checkLocation(test,0,1);
+                compassAnimation(1,ew);
+            }
+        });
+        Button silverNSCheck = findViewById(R.id.silverNS);
+        silverNSCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int[] test = new int[2];
+                EditText input = findViewById(R.id.numpadinput);
+                test[0] = Integer.parseInt(input.getText().toString())/10;
+                test[1] = Integer.parseInt(input.getText().toString())%10;
+                int ns = checkLocation(test,1,0);
+                compassAnimation(0,ns);
+            }
+        });
+        Button silverEWCheck = findViewById(R.id.silverEW);
+        silverEWCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int[] test = new int[2];
+                EditText input = findViewById(R.id.numpadinput);
+                test[0] = Integer.parseInt(input.getText().toString())/10;
+                test[1] = Integer.parseInt(input.getText().toString())%10;
+                int ew = checkLocation(test,1,1);
+                compassAnimation(1,ew);
+            }
+        });
+    }
+
+    private void compassAnimation (int nsvew, int direction) {
+        TextView compass = findViewById(R.id.compass);
+        if (nsvew == 0) {
+            if (direction > 0)
+                compass.setText(direction + "North");
+            else if (direction < 0)
+                compass.setText(direction + "South");
+            else
+                compass.setText("Here");
+        }
+        else if (nsvew == 1) {
+            if (direction > 0)
+                compass.setText(direction + "East");
+            else if (direction < 0)
+                compass.setText(direction + "West");
+            else
+                compass.setText("Here");
+        }
     }
 
     private void setLocations (int gvs) {

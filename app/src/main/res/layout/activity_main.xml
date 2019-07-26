@@ -51,11 +51,12 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="@string/silverNS"
-            android:id="@+id/silverEW"/>
+            android:id="@+id/silverNS"/>
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="@string/silverEW"/>
+            android:text="@string/silverEW"
+            android:id="@+id/silverEW"/>
     </LinearLayout>
 
     <LinearLayout
