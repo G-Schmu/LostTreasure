@@ -2,10 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:led="http://schemas.android.com/apk/LostTreasure"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/caseblue"
+    android:id="@+id/main">
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/caseblue"
+        android:backgroundTint="@color/shadedown"
+        android:backgroundTintMode="multiply"
+        >
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/menu"/>
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/explore"/>
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/dive"/>
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/map"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -26,51 +56,115 @@
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/compass">
 
         </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <com.example.losttreasure.RedLED
+                android:id="@+id/northLED"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                led:ledoffcolor="#FF0000"
+                led:ledoncolor="#FF3333"/>
+            <com.example.losttreasure.RedLED
+                android:id="@+id/southLED"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                led:ledoffcolor="#FF0000"
+                led:ledoncolor="#FF3333"/>
+            <com.example.losttreasure.RedLED
+                android:id="@+id/centerLED"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                led:ledoffcolor="#FF0000"
+                led:ledoncolor="#FF3333" />
+            <com.example.losttreasure.RedLED
+                android:id="@+id/westLED"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                led:ledoffcolor="#FF0000"
+                led:ledoncolor="#FF3333"
+                />
+            <com.example.losttreasure.RedLED
+                android:id="@+id/eastLED"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                led:ledoffcolor="#FF0000"
+                led:ledoncolor="#FF3333"
+                />
+        </LinearLayout>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@color/controlpanel"
+        android:layout_marginEnd="8dp">
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:text="@string/goldNS"
+            android:id="@+id/goldNS"
+            android:background="@color/gold"/>
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:text="@string/goldEW"
+            android:id="@+id/goldEW"
+            android:background="@color/gold"/>
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:text="@string/silverNS"
+            android:id="@+id/silverNS"
+            android:background="@color/silver"/>
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:text="@string/silverEW"
+            android:id="@+id/silverEW"
+            android:background="@color/silver"/>
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="@string/goldNS"
-            android:id="@+id/goldNS"/>
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="@string/goldEW"
-            android:id="@+id/goldEW"/>
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="@string/silverNS"
-            android:id="@+id/silverNS"/>
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="@string/silverEW"
-            android:id="@+id/silverEW"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <EditText
+        android:background="@color/controlpanel"
+        android:padding="8dp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="20dp"
-            android:textSize="20sp"
-            android:fontFamily="monospace"
-            android:gravity="center"
-            android:id="@+id/numpadinput"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:paddingVertical="20dp"
+                android:textSize="20sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:id="@+id/numpadinput"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="@string/clear"
+                android:background="@color/shadedown"/>
+        </LinearLayout>
+
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_gravity="center"
@@ -83,63 +177,72 @@
                 android:layout_height="100dp"
                 android:text="1"
                 android:id="@+id/numpad1"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/lightblue"/>
             <Button
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="2"
                 android:id="@+id/numpad2"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/lightblue"/>
             <Button
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="3"
                 android:id="@+id/numpad3"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/medblue"/>
             <Button
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="4"
                 android:id="@+id/numpad4"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/lightblue"/>
             <Button
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="5"
                 android:id="@+id/numpad5"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/lightblue"/>
             <Button
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="6"
                 android:id="@+id/numpad6"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/medblue"/>
             <Button
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="7"
                 android:id="@+id/numpad7"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/medblue"/>
             <Button
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="8"
                 android:id="@+id/numpad8"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/medblue"/>
             <Button
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="9"
                 android:id="@+id/numpad9"
-                style="?android:buttonBarButtonStyle"/>
+                style="?android:buttonBarButtonStyle"
+                android:background="@color/medblue"/>
         </GridLayout>
 
     </LinearLayout>

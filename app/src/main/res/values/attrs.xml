@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="RedLED">
+        <attr name="ledoffcolor" format="color"/>
+        <attr name="ledoncolor" format="color"/>
+        <attr name="ledoneffects" format="color"/>
+    </declare-styleable>
+</resources>

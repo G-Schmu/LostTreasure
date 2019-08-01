@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private int goldlocation[], silverlocation[], goldtreasure[], silvertreasure[];
     private double tiledepths[], oxygenlevel;
     public Random rng = new Random();
+    private RedLED northLED, southLED, eastLED, westLED, centerLED, treasureLEDs[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,25 +83,50 @@ public class MainActivity extends AppCompatActivity {
                 compassAnimation(1,ew);
             }
         });
+
+        northLED = findViewById(R.id.northLED);
+        southLED = findViewById(R.id.southLED);
+        eastLED = findViewById(R.id.eastLED);
+        westLED = findViewById(R.id.westLED);
+        centerLED = findViewById(R.id.centerLED);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        View main = findViewById(R.id.main);
+        main.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+                        // Set the content to appear under the system bars so that the
+                        // content doesn't resize when the system bars hide and show.
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        // Hide the nav bar and status bar
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
     private void compassAnimation (int nsvew, int direction) {
-        TextView compass = findViewById(R.id.compass);
-        if (nsvew == 0) {
+        northLED.turnoff();
+        southLED.turnoff();
+        eastLED.turnoff();
+        westLED.turnoff();
+        centerLED.turnoff();
+        if (direction == 0)
+            centerLED.turnOn();
+        else if (nsvew == 0) {
             if (direction > 0)
-                compass.setText(direction + "North");
+                northLED.turnOn();
             else if (direction < 0)
-                compass.setText(direction + "South");
-            else
-                compass.setText("Here");
+                southLED.turnOn();
         }
         else if (nsvew == 1) {
             if (direction > 0)
-                compass.setText(direction + "East");
+                eastLED.turnOn();
             else if (direction < 0)
-                compass.setText(direction + "West");
-            else
-                compass.setText("Here");
+                westLED.turnOn();
         }
     }
 

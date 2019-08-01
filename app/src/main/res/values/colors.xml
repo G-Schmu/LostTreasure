@@ -3,4 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="shadedown">#3E000000</color>
+
+    <color name="caseblue">#29609E</color>
+    <color name="gold">#FFB615</color>
+    <color name="silver">#E8E3DF</color>
+
+    <color name="lightblue">#D0D8D0</color>
+    <color name="medblue">#7FCBD3</color>
+    <color name="controlpanel">#DFDED3</color>
 </resources>

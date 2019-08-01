@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">Lost Treasure</string>
 
-    <string name="goldNS">Gold N/S</string>
-    <string name="goldEW">Gold E/W</string>
-    <string name="silverNS">Silver N/S</string>
-    <string name="silverEW">Silver E/W</string>
+    <string name="goldNS">Gold\nN/S</string>
+    <string name="goldEW">Gold\nE/W</string>
+    <string name="silverNS">Silver\nN/S</string>
+    <string name="silverEW">Silver\nE/W</string>
+    <string name="clear">C</string>
+
+    <string name="menu">Menu</string>
+    <string name="explore">Explore</string>
+    <string name="dive">Dive</string>
+    <string name="map">Map/History</string>
 
 </resources>
