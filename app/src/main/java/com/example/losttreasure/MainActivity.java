@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
         setLocations(1);
         TextView goldlocationtext = findViewById(R.id.goldLocation);
         TextView silverlocationtext = findViewById(R.id.silverLocation);
-        goldlocationtext.setText("Gold: " + String.valueOf(goldlocation[0])+String.valueOf(goldlocation[1]));
-        silverlocationtext.setText("Silver: "+String.valueOf(silverlocation[0])+String.valueOf(silverlocation[1]));
+        goldlocationtext.setText("G: " + String.valueOf(goldlocation[0])+String.valueOf(goldlocation[1]));
+        silverlocationtext.setText("S: "+String.valueOf(silverlocation[0])+String.valueOf(silverlocation[1]));
 
 
         ExploreFragment exploreFragment = new ExploreFragment();

@@ -10,52 +10,96 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:gravity="center">
-                <com.example.losttreasure.RedLED
-                    android:id="@+id/northLED"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    led:ledoffcolor="#FF0000"
-                    led:ledoncolor="#FF3333"/>
-                <com.example.losttreasure.RedLED
-                    android:id="@+id/southLED"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    led:ledoffcolor="#FF0000"
-                    led:ledoncolor="#FF3333"/>
-                <com.example.losttreasure.RedLED
-                    android:id="@+id/centerLED"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    led:ledoffcolor="#FF0000"
-                    led:ledoncolor="#FF3333" />
-                <com.example.losttreasure.RedLED
-                    android:id="@+id/westLED"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    led:ledoffcolor="#FF0000"
-                    led:ledoncolor="#FF3333"
-                    />
+            android:gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/north"/>
+                    <com.example.losttreasure.RedLED
+                        android:id="@+id/northLED"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        led:ledoffcolor="#FF0000"
+                        led:ledoncolor="#FF3333"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center">
+                    <com.example.losttreasure.RedLED
+                        android:id="@+id/southLED"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        led:ledoffcolor="#FF0000"
+                        led:ledoncolor="#FF3333"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/south"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center">
+                    <com.example.losttreasure.RedLED
+                        android:id="@+id/centerLED"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        led:ledoffcolor="#FF0000"
+                        led:ledoncolor="#FF3333" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/east"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/west"/>
+                    <com.example.losttreasure.RedLED
+                        android:id="@+id/westLED"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        led:ledoffcolor="#FF0000"
+                        led:ledoncolor="#FF3333"
+                        />
+                </LinearLayout>
                 <com.example.losttreasure.RedLED
                     android:id="@+id/eastLED"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     led:ledoffcolor="#FF0000"
                     led:ledoncolor="#FF3333"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     />
-            </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,15 +151,17 @@
                     android:layout_weight="3"
                     android:layout_height="wrap_content"
                     android:paddingVertical="20dp"
-                    android:textSize="20sp"
+                    android:textSize="30sp"
                     android:fontFamily="monospace"
                     android:gravity="center"
-                    android:id="@+id/numpadinput"/>
+                    android:id="@+id/numpadinput"
+                    android:textColor="#FF0000"/>
                 <Button
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:text="@string/clear"
+                    android:id="@+id/numpadclear"
                     android:background="@color/shadedown"/>
             </LinearLayout>
 
