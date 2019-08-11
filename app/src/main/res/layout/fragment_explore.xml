@@ -60,7 +60,7 @@
                     android:layout_centerVertical="true"
                     android:gravity="center">
                     <com.example.losttreasure.RedLED
-                        android:id="@+id/centerLED"
+                        android:id="@+id/eastLED"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         led:ledoffcolor="#FF0000"
@@ -90,7 +90,7 @@
                         />
                 </LinearLayout>
                 <com.example.losttreasure.RedLED
-                    android:id="@+id/eastLED"
+                    android:id="@+id/centerLED"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     led:ledoffcolor="#FF0000"

@@ -3,6 +3,7 @@ package com.example.losttreasure;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -133,37 +134,57 @@ public class ExploreFragment extends Fragment {
             return locationcoord[nsvew]-silverlocation[nsvew];
     }
 
-    private void compassAnimation (int nsvew, int direction) {
-        turnOffCompass();
+    private void compassAnimation (final int nsvew, final int direction) {
+        new CountDownTimer(1800,200) {
+            int interval = 0;
+            public void onFinish() {
+                showDirection(nsvew, direction);
+                turnOffCompass();
+            }
+            public void onTick(long millisUntilFinished) {
+                switch (interval % 4) {
+                    case 0:
+                        northLED.blinkntimes(1,100);
+                        break;
+                    case 1:
+                        eastLED.blinkntimes(1,100);
+                        break;
+                    case 2:
+                        southLED.blinkntimes(1,100);
+                        break;
+                    case 3:
+                        westLED.blinkntimes(1,100);
+                        break;
+                }
+                interval++;
+            }
+        }.start();
+    }
+
+    private void showDirection (int nsvew, int direction) {
+
         if (direction == 0)
-            centerLED.turnOn();
+            centerLED.blinkntimes(3,500);
         else if (nsvew == 0) {
             if (direction < 0)
-                northLED.turnOn();
+                northLED.blinkntimes(3,500);
             else
-                southLED.turnOn();
+                southLED.blinkntimes(3,500);
         }
         else if (nsvew == 1) {
             if (direction < 0)
-                eastLED.turnOn();
+                eastLED.blinkntimes(3,500);
             else
-                westLED.turnOn();
+                westLED.blinkntimes(3,500);
         }
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                turnOffCompass();
-            }
-        }, 3000);
     }
 
     private void turnOffCompass () {
-        northLED.turnoff();
-        southLED.turnoff();
-        eastLED.turnoff();
-        westLED.turnoff();
-        centerLED.turnoff();
+        northLED.turnOff();
+        southLED.turnOff();
+        eastLED.turnOff();
+        westLED.turnOff();
+        centerLED.turnOff();
     }
 
     private void refreshNumpadInput () {
@@ -186,6 +207,7 @@ public class ExploreFragment extends Fragment {
         @Override
         public void onClick(View v) {
             int gvs, nsvew;
+            //g: 0, s: 1, ns: 0, ew: 1
             switch (v.getId()) {
                 case R.id.goldNS:
                     gvs = 0;
@@ -209,8 +231,10 @@ public class ExploreFragment extends Fragment {
                         nsvew = 0;
                         break;
             }
-            int ns = checkLocation(selectedlocation,gvs,nsvew);
-            compassAnimation(0,ns);
+            int direction = checkLocation(selectedlocation,gvs,nsvew);
+            compassAnimation(gvs,direction);
+            selectedlocation[0] = -1;
+            selectedlocation[1] = -1;
         }
     }
 

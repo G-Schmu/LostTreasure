@@ -6,9 +6,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.os.CountDownTimer;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Toast;
+
 
 public class RedLED extends View {
 
@@ -34,7 +36,7 @@ public class RedLED extends View {
 
         ledPaint.setStyle(Style.FILL);
         ledPaint.setAntiAlias(true);
-        ledPaint.setColor(Color.parseColor("#FF0000"));
+        ledPaint.setColor(Color.parseColor("#8C0303"));
 
     }
 
@@ -60,15 +62,32 @@ public class RedLED extends View {
     }
 
     public void turnOn () {
-        ledPaint.setColor(Color.parseColor("#0000FF"));
+        ledPaint.setColor(Color.parseColor("#F20505"));
         invalidate();
         requestLayout();
     }
 
-    public void turnoff () {
-        ledPaint.setColor(Color.parseColor("#FF0000"));
+    public void turnOff () {
+        ledPaint.setColor(Color.parseColor("#8C0303"));
         invalidate();
         requestLayout();
+    }
+
+    public void blinkntimes (int n, int frequency) {
+        int totaltime = 2*n*frequency;
+        new CountDownTimer(totaltime, frequency) {
+            int interval = 0;
+            public void onFinish() {
+                turnOff();
+            }
+            public void onTick(long millisUntilFinished) {
+                if (interval % 2 == 0)
+                    turnOn();
+                else
+                    turnOff();
+                interval++;
+            }
+        }.start();
     }
 
 }
