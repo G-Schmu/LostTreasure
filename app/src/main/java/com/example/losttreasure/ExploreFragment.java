@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ExploreFragment extends Fragment {
@@ -18,6 +20,7 @@ public class ExploreFragment extends Fragment {
     private Button numpad[];
     private int[] selectedlocation, goldlocation, silverlocation;
     private TextView numpadInput;
+    private RelativeLayout compass;
 
     private OnFragmentInteractionListener mListener;
 
@@ -135,6 +138,7 @@ public class ExploreFragment extends Fragment {
     }
 
     private void compassAnimation (final int nsvew, final int direction) {
+        centerLED.turnOn();
         new CountDownTimer(1800,200) {
             int interval = 0;
             public void onFinish() {
@@ -225,7 +229,6 @@ public class ExploreFragment extends Fragment {
                     gvs = 1;
                     nsvew = 1;
                     break;
-
                     default:
                         gvs = 0;
                         nsvew = 0;

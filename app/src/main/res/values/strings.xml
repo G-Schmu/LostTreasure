@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">Lost Treasure</string>
 
+    <string name="air">Air</string>
+    <string name="up">Up</string>
+    <string name="dollarsign">$</string>
+    <string name="clear">C</string>
+
     <string name="goldNS">Gold\nN/S</string>
     <string name="goldEW">Gold\nE/W</string>
     <string name="silverNS">Silver\nN/S</string>
     <string name="silverEW">Silver\nE/W</string>
-    <string name="clear">C</string>
 
     <string name="north">N</string>
     <string name="south">S</string>
@@ -16,6 +20,20 @@
     <string name="explore">Explore</string>
     <string name="dive">Dive</string>
     <string name="map">Map/History</string>
+
+    <string name="air12">12\n11</string>
+    <string name="air10">10\n9</string>
+    <string name="air8">8\n7</string>
+    <string name="air6">6\n5</string>
+    <string name="air4">4\n3</string>
+    <string name="air2">2\n1</string>
+
+    <string name="money350">$350K</string>
+    <string name="money300">$300K</string>
+    <string name="money250">$250K</string>
+    <string name="money200">$200K</string>
+    <string name="money150">$150K</string>
+    <string name="money100">$100K</string>
 
 
 </resources>

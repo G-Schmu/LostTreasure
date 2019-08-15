@@ -151,7 +151,7 @@ public class DiveFragment extends Fragment {
 
     private int[] setTreasure () {
         int[] treasure = new int[9];
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 6; i++) {
             int tile = rng.nextInt(9);
             treasure[tile]++;
         }

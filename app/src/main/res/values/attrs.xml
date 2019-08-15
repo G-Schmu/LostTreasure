@@ -4,4 +4,5 @@
         <attr name="ledoncolor" format="color"/>
         <attr name="ledoneffects" format="color"/>
     </declare-styleable>
+
 </resources>

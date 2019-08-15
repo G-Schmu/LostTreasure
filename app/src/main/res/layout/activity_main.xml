@@ -20,19 +20,23 @@
         <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:text="@string/menu"/>
+            android:text="@string/menu"
+            android:id="@+id/menubutton"/>
         <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:text="@string/explore"/>
+            android:text="@string/explore"
+            android:id="@+id/exploremodebutton"/>
         <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:text="@string/dive"/>
+            android:text="@string/dive"
+            android:id="@+id/divemodebutton"/>
         <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:text="@string/map"/>
+            android:text="@string/map"
+            android:id="@+id/mapmodebutton"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

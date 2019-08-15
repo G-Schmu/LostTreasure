@@ -10,11 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:layout_weight="1">
+        <RelativeLayout
+            android:layout_width="275dp"
+            android:layout_height="275dp"
+            android:padding="40dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/compass"
+            android:background="@drawable/compassbkg">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -28,12 +35,11 @@
                         android:text="@string/north"/>
                     <com.example.losttreasure.RedLED
                         android:id="@+id/northLED"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         led:ledoffcolor="#FF0000"
                         led:ledoncolor="#FF3333"/>
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -43,8 +49,8 @@
                     android:gravity="center">
                     <com.example.losttreasure.RedLED
                         android:id="@+id/southLED"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         led:ledoffcolor="#FF0000"
                         led:ledoncolor="#FF3333"/>
                     <TextView
@@ -61,8 +67,8 @@
                     android:gravity="center">
                     <com.example.losttreasure.RedLED
                         android:id="@+id/eastLED"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         led:ledoffcolor="#FF0000"
                         led:ledoncolor="#FF3333" />
                     <TextView
@@ -83,29 +89,30 @@
                         android:text="@string/west"/>
                     <com.example.losttreasure.RedLED
                         android:id="@+id/westLED"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         led:ledoffcolor="#FF0000"
                         led:ledoncolor="#FF3333"
                         />
                 </LinearLayout>
                 <com.example.losttreasure.RedLED
                     android:id="@+id/centerLED"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     led:ledoffcolor="#FF0000"
                     led:ledoncolor="#FF3333"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     />
-
         </RelativeLayout>
+        </FrameLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="16dp"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:background="@color/controlpanel"
+            android:background="@drawable/controlpanelbkg"
             android:layout_marginEnd="8dp">
             <Button
                 android:layout_width="80dp"
@@ -136,12 +143,13 @@
                 android:id="@+id/silverEW"
                 android:background="@color/silver"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@color/controlpanel"
-            android:padding="8dp">
+            android:background="@drawable/controlpanelbkg"
+            android:padding="16dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -246,6 +254,7 @@
             </GridLayout>
 
         </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>

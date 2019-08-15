@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import java.util.Random;
 
@@ -12,6 +13,10 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
 
     private int goldlocation[], silverlocation[];
     public Random rng = new Random();
+    private Button exploremodeButton, divemodeButton, mapmodeButton;
+    public DiveFragment diveFragment;
+    public ExploreFragment exploreFragment;
+    public FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +33,17 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
         goldlocationtext.setText("G: " + String.valueOf(goldlocation[0])+String.valueOf(goldlocation[1]));
         silverlocationtext.setText("S: "+String.valueOf(silverlocation[0])+String.valueOf(silverlocation[1]));
 
+        divemodeButton = findViewById(R.id.divemodebutton);
+        divemodeButton.setOnClickListener(new menuButtonListener());
+        exploremodeButton = findViewById(R.id.exploremodebutton);
+        exploremodeButton.setOnClickListener(new menuButtonListener());
+        mapmodeButton = findViewById(R.id.mapmodebutton);
 
-        ExploreFragment exploreFragment = new ExploreFragment();
-        DiveFragment diveFragment = new DiveFragment();
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        exploreFragment = new ExploreFragment();
+        diveFragment = new DiveFragment();
+
+        fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().add(R.id.fragmentcontainer,exploreFragment).commit();
 
     }
@@ -78,6 +89,19 @@ public class MainActivity extends AppCompatActivity implements ExploreFragment.O
     @Override
     public void onFragmentInteraction(Uri uri){
         //you can leave it empty
+    }
+
+    class menuButtonListener implements Button.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            if (v.getId() == R.id.divemodebutton) {
+                fragmentManager.beginTransaction().replace(R.id.fragmentcontainer,diveFragment).commit();
+            }
+            if (v.getId() == R.id.exploremodebutton) {
+                fragmentManager.beginTransaction().replace(R.id.fragmentcontainer,exploreFragment).commit();
+            }
+        }
     }
 
 }
